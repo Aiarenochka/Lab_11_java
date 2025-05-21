@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика: Видавництва</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+</head>
+<body class="container mt-4">
+<h2>📈 Видавництва → Кількість книг</h2>
+<ul class="list-group">
+    <li th:each="entry : ${publisherMap}" class="list-group-item">
+        <span th:text="${entry.key} + ': ' + ${entry.value} + ' книг'"></span>
+    </li>
+</ul>
+<a class="btn btn-secondary mt-3" href="/">⬅️ Назад</a>
+</body>
+</html>

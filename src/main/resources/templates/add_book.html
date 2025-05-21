@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Додати книгу</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+    <style>
+        body, html {
+            height: 100%;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1rem;
+        }
+        .form-title {
+            align-self: flex-start;
+            margin-bottom: 2rem;
+            margin-left: 2rem;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+        form {
+            width: 100%;
+            max-width: 450px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn-group .btn {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h2 class="form-title">➕ Додати нову книгу</h2>
+
+    <form th:action="@{/books/add_book}" th:object="${book}" method="post" class="d-flex flex-column gap-3">
+        <label>ID:
+            <input type="number" th:field="*{id}" class="form-control" required min="0"
+                   value="0"
+                   onfocus="if(this.value==='0') this.value='';"
+                   onblur="if(this.value==='') this.value='0';" />
+        </label>
+        <label>Назва:
+            <input type="text" th:field="*{title}" class="form-control" required />
+        </label>
+        <label>Автор:
+            <input type="text" th:field="*{author}" class="form-control" required />
+        </label>
+        <label>Видавництво:
+            <input type="text" th:field="*{publisher}" class="form-control" required />
+        </label>
+        <label>Сторінки:
+            <input type="number" th:field="*{pages}" class="form-control" required min="1"
+                   value="0"
+                   onfocus="if(this.value==='0') this.value='';"
+                   onblur="if(this.value==='') this.value='0';" />
+        </label>
+        <label>Рік:
+            <input type="number" th:field="*{year}" class="form-control" required min="0"
+                   value="0"
+                   onfocus="if(this.value==='0') this.value='';"
+                   onblur="if(this.value==='') this.value='0';" />
+        </label>
+        <label>Жанр:
+            <input type="text" th:field="*{genre}" class="form-control" required />
+        </label>
+
+        <div class="btn-group mt-4">
+            <button class="btn btn-success" type="submit">Зберегти</button>
+            <a class="btn btn-secondary" href="/">Назад</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

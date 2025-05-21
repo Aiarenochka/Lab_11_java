@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Пошук за кількістю сторінок</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}" />
+</head>
+<body class="container mt-5">
+<h2>Пошук книг з мінімальною кількістю сторінок</h2>
+<form th:action="@{/books/pages}" method="get" class="mt-3">
+  <div class="mb-3">
+    <label for="minPages" class="form-label">Мінімальна кількість сторінок:</label>
+    <input type="number" class="form-control" id="minPages" name="minPages" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Знайти</button>
+</form>
+</body>
+</html>

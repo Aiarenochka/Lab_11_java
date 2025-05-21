@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика: Жанри</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+</head>
+<body class="container mt-4">
+<h2>📊 Жанри → Книги</h2>
+<div th:each="entry : ${genreMap}" class="mb-4">
+    <h4 th:text="${entry.key}" class="text-primary"></h4>
+    <ul class="list-group">
+        <li th:each="book : ${entry.value}" class="list-group-item" th:text="${book.author + ' — ' + book.title}"></li>
+    </ul>
+</div>
+<a class="btn btn-secondary" href="/">⬅️ Назад</a>
+</body>
+</html>

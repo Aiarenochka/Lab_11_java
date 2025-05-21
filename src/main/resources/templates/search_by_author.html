@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Пошук книги за автором</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}" />
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Пошук книги за автором</h2>
+    <form th:action="@{/books/author}" method="get">
+        <div class="mb-3">
+            <label for="author" class="form-label">Автор:</label>
+            <input type="text" class="form-control" id="author" name="author" placeholder="Введіть ім'я автора" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Пошук</button>
+    </form>
+</div>
+<script th:src="@{/webjars/bootstrap/5.3.5/dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

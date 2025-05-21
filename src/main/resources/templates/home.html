@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Книжкова бібліотека</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}" />
+</head>
+<body class="container mt-4">
+<h1 class="mb-4">📚 Книжкова бібліотека</h1>
+<div class="list-group">
+    <a class="list-group-item" href="/books">📑 Переглянути всі книги</a>
+    <a class="list-group-item" href="/books/add_book">➕ Додати нову книгу</a>
+    <a class="list-group-item" href="/load-from-json">📥 Завантажити з JSON</a>
+    <a class="list-group-item" href="/save-to-json">💾 Зберегти у JSON</a>
+    <a class="list-group-item" th:href="@{/books/search_by_author}">👤 Пошук за автором</a>
+    <a class="list-group-item" th:href="@{/books/search_by_publisher}">🏢 Пошук за видавництвом</a>
+    <a class="list-group-item" th:href="@{/books/search_by_pages}">📘 Пошук за кількістю сторінок</a>
+    <a class="list-group-item" th:href="@{/books/search_by_genre}">📖 Пошук за жанром</a>
+    <a class="list-group-item" th:href="@{/books/search_by_id}">🔍 Перевірити книгу за ID</a>
+    <a class="list-group-item" href="/books/stats/genre">📊 Статистика: Жанри → Книги</a>
+    <a class="list-group-item" href="/books/stats/publisher">📈 Статистика: Видавництва → Кількість</a>
+</div>
+</body>
+</html>

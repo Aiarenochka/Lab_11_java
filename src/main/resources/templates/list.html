@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список книг</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+</head>
+<body class="container mt-4">
+<h2>📖 Список книг</h2>
+
+<div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+<div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+<div th:if="${warning}" class="alert alert-warning" th:text="${warning}"></div>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+    <tr>
+        <th>ID</th><th>Назва</th><th>Автор</th><th>Видавництво</th>
+        <th>Сторінки</th><th>Рік</th><th>Жанр</th><th>Дія</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.publisher}"></td>
+        <td th:text="${book.pages}"></td>
+        <td th:text="${book.year}"></td>
+        <td th:text="${book.genre}"></td>
+        <td>
+            <a th:href="@{'/books/delete/' + ${book.id}}"
+               class="btn btn-danger btn-sm"
+               onclick="return confirm('Видалити книгу з ID ' + [[${book.id}]] + '?')">
+                Видалити
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-secondary" href="/">⬅️ На головну</a>
+</body>
+</html>
