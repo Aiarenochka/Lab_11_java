@@ -31,7 +31,7 @@
         <td>
             <a th:href="@{'/books/delete/' + ${book.id}}"
                class="btn btn-danger btn-sm"
-               onclick="return confirm('Видалити книгу з ID ' + [[${book.id}]] + '?')">
+               onclick="return confirm('Видалити книгу з ID [[${book.id}]]?')">
                 Видалити
             </a>
         </td>
